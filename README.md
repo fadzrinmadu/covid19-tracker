@@ -2,7 +2,7 @@
 
 ### [Live Site](https://realtime-chat-application.netlify.com)
 
-![COVID-19 Tracker](preview.jpg)
+![COVID-19 Tracker](./preview.jpg)
 
 ## Introduction
 Introducing the COVID-19 Tracker application, this application is built using React, Charts.JS and Material UI. 
