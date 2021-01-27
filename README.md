@@ -1,6 +1,6 @@
 # COVID-19 Tracker 
 
-### [Live Site](https://realtime-chat-application.netlify.com)
+### [Live Site](https://covid-19-tracker-5c88e.web.app/)
 
 ![COVID-19 Tracker](/preview.jpg)
 
