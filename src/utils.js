@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import numeral from 'numeral';
 import { Circle, Popup } from 'react-leaflet';
 
@@ -15,12 +15,6 @@ const casesTypeColors = {
     hex: '#fb4443',
     multiplier: 2000,
   },
-};
-
-export const sortData = (data) => {
-  const sortedData = [...data];
-  sortedData.sort((a, b) => (a.cases > b.cases) ? -1 : 1);
-  return sortedData; 
 };
 
 export const showDataOnMap = (data, casesType = 'cases') => {
@@ -50,7 +44,13 @@ export const showDataOnMap = (data, casesType = 'cases') => {
       </Popup>
     </Circle>
   ));
-}
+};
+
+export const sortData = (data) => {
+  const sortedData = [...data];
+  sortedData.sort((a, b) => (a.cases > b.cases) ? -1 : 1);
+  return sortedData; 
+};
 
 export const prettyPrintStat = (stat) => 
   stat ? `+${numeral(stat).format('0.0a')}` : '+0';

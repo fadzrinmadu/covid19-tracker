@@ -1,5 +1,6 @@
 import './App.css';
 import 'leaflet/dist/leaflet.css';
+
 import React, { useState, useEffect } from 'react';
 import {
   MenuItem,
@@ -36,19 +37,18 @@ function App() {
 
   useEffect(() => {
     const getCountriesData = async () => {
-      await fetch('https://disease.sh/v3/covid-19/countries')
-        .then((response) => response.json())
-        .then((data) => {
-          const countries = data.map((country) => ({
-            name: country.country,
-            value: country.countryInfo.iso2
-          }));
+      const data = await fetch('https://disease.sh/v3/covid-19/countries')
+        .then((response) => response.json());
 
-          const sortedData = sortData(data);
-          setTableData(sortedData);
-          setCountries(countries);
-          setMapCountries(data);
-        });
+      const countries = data.map((country) => ({
+        name: country.country,
+        value: country.countryInfo.iso2,
+      }));
+
+      const sortedData = sortData(data);
+      setTableData(sortedData);
+      setCountries(countries);
+      setMapCountries(data);
     };
 
     getCountriesData();
@@ -81,7 +81,9 @@ function App() {
             <Select variant="outlined" onChange={onCountryChange} value={country}>
               <MenuItem value={country}>World Wide</MenuItem>
               {countries.map((country, index) => (
-                <MenuItem value={country.value} key={index}>{country.name}</MenuItem>
+                <MenuItem value={country.value} key={index}>
+                  {country.name}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -91,25 +93,25 @@ function App() {
           <InfoBox 
             isRed
             active={casesType === 'cases'}
-            onClick={e => setCasesType('cases')}
             title="Coronavirus Cases" 
             cases={prettyPrintStat(countryInfo.todayCases)} 
             total={prettyPrintStat(countryInfo.cases)}
+            onClick={(e) => setCasesType('cases')}
           />
           <InfoBox 
             active={casesType === 'recovered'}
-            onClick={e => setCasesType('recovered')}
             title="Recovered" 
             cases={prettyPrintStat(countryInfo.todayRecovered)} 
             total={prettyPrintStat(countryInfo.recovered)}
+            onClick={(e) => setCasesType('recovered')}
           />
           <InfoBox
             isRed
             active={casesType === 'deaths'}
-            onClick={e => setCasesType('deaths')}
             title="Deaths" 
             cases={prettyPrintStat(countryInfo.todayDeaths)} 
             total={prettyPrintStat(countryInfo.deaths)} 
+            onClick={(e) => setCasesType('deaths')}
           />
         </div>
 
