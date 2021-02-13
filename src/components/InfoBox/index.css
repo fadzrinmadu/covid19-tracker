@@ -15,15 +15,23 @@
   border-color: red;
 }
 
+.infoBox--orange {
+  border-color: orange;
+}
+
 .infoBox__cases {
-  color: #cc1034;
+  color: lightgreen;
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 0.5rem;
 }
 
-.infoBox__cases--green {
-  color: lightgreen !important;
+.infoBox__cases--red {
+  color: red !important;
+}
+
+.infoBox__cases--orange {
+  color: orange !important;
 }
 
 .infoBox__total {
