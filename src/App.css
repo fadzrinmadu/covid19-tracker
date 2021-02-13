@@ -49,9 +49,13 @@ body {
   flex-grow: 1;
 }
 
-.app__graphTitle {
+.app__right h3 {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.app__right table {
+  margin-top: 0;
 }
 
 .app__graph {
