@@ -54,7 +54,7 @@ const buildChartData = (data, casesType = 'cases') => {
     if (lastDataPoint) {
       let newDataPoint = {
         x: date,
-        y: data[casesType][date] - lastDataPoint // perbedaan kasus antara 2 day
+        y: data[casesType][date] - lastDataPoint // perbedaan kasus antara 2 hari
       };
       chartData.push(newDataPoint);
     }
@@ -72,13 +72,13 @@ function LineGraph({ className, casesType = 'cases' }) {
       await fetch('https://disease.sh/v3/covid-19/historical/all?lastdays=120')
         .then((response) => response.json())
         .then((data) => {
-          let chartData = buildChartData(data, 'cases');
+          let chartData = buildChartData(data, casesType);
           setData(chartData);
         });
     };
 
     fetchData();
-  }, []);
+  }, [casesType]);
 
   return (
     <div className={className}>
@@ -88,7 +88,7 @@ function LineGraph({ className, casesType = 'cases' }) {
           data={{
             datasets: [
               { 
-                backgroundColor: 'rgba(204, 16, 52, 0.5',
+                backgroundColor: 'rgba(204, 16, 52, 0.5)',
                 borderColor: '#cc1034',
                 data: data,
               }
