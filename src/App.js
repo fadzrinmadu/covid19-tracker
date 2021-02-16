@@ -17,6 +17,9 @@ import Map from './components/Map';
 import Table from './components/Table';
 import LineGraph from './components/LineGraph';
 
+// Import assets
+import Logo from './assets/images/logo.png';
+
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState('worldwide');
@@ -76,7 +79,7 @@ function App() {
     <div className="app">
       <div className="app__left">
         <header className="app__header">
-          <h1>Covid-19 Tracker</h1>
+          <h1><img src={Logo} alt="Covid-19 Tracker" height="40px" /></h1>
           <FormControl className="app__dropdown">
             <Select variant="outlined" onChange={onCountryChange} value={country}>
               <MenuItem value={country}>World Wide</MenuItem>
