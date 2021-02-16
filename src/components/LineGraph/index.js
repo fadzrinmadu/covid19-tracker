@@ -29,6 +29,10 @@ const options = {
           format: 'MM/DD/YY',
           tooltipFormat: 'll',
         },
+        ticks: {
+          autoSkip: true,
+          maxTicksLimit: 12,
+        },
       },
     ],
     yAxes: [
