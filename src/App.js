@@ -79,7 +79,7 @@ function App() {
     <div className="app">
       <div className="app__left">
         <header className="app__header">
-          <h1><img src={Logo} alt="Covid-19 Tracker" height="40px" /></h1>
+          <h1><img src={Logo} alt="Covid-19 Tracker" height="44px" /></h1>
           <FormControl className="app__dropdown">
             <Select variant="outlined" onChange={onCountryChange} value={country}>
               <MenuItem value={country}>World Wide</MenuItem>
